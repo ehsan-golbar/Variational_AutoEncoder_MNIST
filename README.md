@@ -1,6 +1,6 @@
 # Variational_AutoEncoder_MNIST
 
-This project implements a Variational Autoencoder (VAE) for reconstructing images from the MNIST dataset. The VAE is designed to learn a compressed representation of the input images and reconstruct them with minimal loss, while also learning a meaningful latent space.  
+This project implements a Variational Autoencoder (VAE) for reconstructing images from the MNIST dataset. The VAE learns a compressed representation of the input images and reconstructs them with minimal loss, while also learning a meaningful latent space.  
 
 ---
 
@@ -24,13 +24,11 @@ The VAE is composed of two main parts:
 
 ### Encoder  
 - Consists of two convolutional layers followed by fully connected layers.  
-- Extracts meaningful features and encodes them as mean (`μ`) and standard deviation (`σ`) of the latent space.  
+- Extracts meaningful features and encodes them as mean and standard deviation of the latent space.  
 - Uses **ReLU** activations and **Batch Normalization** for stable learning.  
 
 ### Latent Space  
-- Samples from the latent space using the reparameterization trick:  
-  \[ z = \mu + \sigma \cdot \epsilon \]  
-  where \(\epsilon\) is sampled from a standard normal distribution.  
+- Samples from the latent space using a reparameterization trick.  
 
 ### Decoder  
 - Mirrors the Encoder architecture.  
@@ -43,9 +41,7 @@ The VAE is composed of two main parts:
 The VAE is trained using a combination of:  
 - **Reconstruction Loss:** Measures the difference between the input and reconstructed image using **Binary Cross Entropy (BCE)**.  
 - **KL Divergence Loss:** Regularizes the latent space to follow a standard normal distribution.  
-- **Total Loss:**  
-  \[ \text{Loss} = \text{BCE} + \beta \cdot \text{KL Divergence} \]  
-  where **β** is a weighting factor controlling the trade-off between reconstruction and regularization.  
+- **Total Loss:** Balances reconstruction accuracy and latent space regularization.  
 
 ---
 
